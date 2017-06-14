@@ -4,6 +4,7 @@ import json
 # MQTT client to connect to the bus
 mqtt_client = mqtt.Client()
 
+
 # Subscribe to the important messages
 def on_connect(client, userdata, flags, rc):
     mqtt_client.subscribe('hermes/intent/ActivateObject')
@@ -11,12 +12,13 @@ def on_connect(client, userdata, flags, rc):
     mqtt_client.subscribe('hermes/intent/MuteObject')
     mqtt_client.subscribe('hermes/intent/ActivateLightColor')
 
+
 # Process a message as it arrives
 def on_message(client, userdata, msg):
     if msg.topic == 'hermes/intent/ActivateObject':
         slots = parse_slots(msg)
         if 'objectType' not in slots:
-            say('I don\'t know what object I should activate')
+            say("I don't know what object I should activate")
         else:
             object_name = slots['objectType']
             datetime = slots.get('startDateTime', 'now')
@@ -24,7 +26,7 @@ def on_message(client, userdata, msg):
     elif msg.topic == 'hermes/intent/DeactivateObject':
         slots = parse_slots(msg)
         if 'objectType' not in slots:
-            say('I don\'t know what object I should deactivate')
+            say("I don't know what object I should deactivate")
         else:
             object_name = slots['objectType']
             datetime = slots.get('startDateTime', 'now')
@@ -32,7 +34,7 @@ def on_message(client, userdata, msg):
     elif msg.topic == 'hermes/intent/MuteObject':
         slots = parse_slots(msg)
         if 'deviceType' not in slots:
-            say('I don\'t know what object I should mute')
+            say("I don't know what object I should mute")
         else:
             object_name = slots['deviceType']
             say('Mute {}'.format(object_name))
@@ -41,12 +43,14 @@ def on_message(client, userdata, msg):
         color = slots.get('objectColor', 'white').lower()
         say('Turning the light {}'.format(color))
 
+
 def parse_slots(msg):
     '''
     We extract the slots as a dict
     '''
     data = json.loads(msg.payload)
     return dict((slot['slotName'], slot['rawValue']) for slot in data['slots'])
+
 
 def say(text):
     '''
