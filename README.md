@@ -7,6 +7,9 @@ The Snips Voice Platform allows anyone to integrate AI powered voice interaction
 
 Your voice assistant in English, French, German, Spanish or Korean (more to come) can be configured easily via a web console. You can select pre-built assistants, or create completely custom ones. Today, the assistant can be deployed to a Raspberry Pi 3. More platforms are available for enterprise clients, contact us at contact@snips.ai.
 
+### Known bugs
+
+ - there is a small latency between the detection of the hotword and the start of the automated speech recognition, this is solved in the next update
 
 ### Getting Started
 You will find everything you need in the [wiki](https://github.com/snipsco/snips-platform-documentation/wiki). You can get started with the [overview](https://github.com/snipsco/snips-platform-documentation/wiki), or alternatively, navigate the doc from here:
