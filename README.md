@@ -9,7 +9,7 @@ Your voice assistant in English, French, German, Spanish or Korean (more to come
 
 ### Known bugs
 
- - there is a small latency between the detection of the hotword and the start of the automated speech recognition, this is solved in the next update
+ - [2017-06-15] there is a **small latency between the detection of the hotword and the start of the automated speech recognition**, this is solved in the next update
 
 ### Getting Started
 You will find everything you need in the [wiki](https://github.com/snipsco/snips-platform-documentation/wiki). You can get started with the [overview](https://github.com/snipsco/snips-platform-documentation/wiki), or alternatively, navigate the doc from here:
