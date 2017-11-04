@@ -1,5 +1,5 @@
 var mqtt = require('mqtt');
-var mqtt_client = mqtt.connect('mqtt://localhost:9898');
+var mqtt_client = mqtt.connect('mqtt://localhost:1883');
 
 // Subscribe to the important messages
 mqtt_client.on('connect', function () {
