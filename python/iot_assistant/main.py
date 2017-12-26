@@ -7,41 +7,29 @@ mqtt_client = mqtt.Client()
 
 # Subscribe to the important messages
 def on_connect(client, userdata, flags, rc):
-    mqtt_client.subscribe('hermes/intent/ActivateObject')
-    mqtt_client.subscribe('hermes/intent/DeactivateObject')
-    mqtt_client.subscribe('hermes/intent/MuteObject')
-    mqtt_client.subscribe('hermes/intent/ActivateLightColor')
+    mqtt_client.subscribe('hermes/intent/lightsTurnOnSet')
+    mqtt_client.subscribe('hermes/intent/lightsTurnOff')
+    mqtt_client.subscribe('hermes/intent/lightsTurnUp')
+    mqtt_client.subscribe('hermes/intent/lightsTurnDown')
 
 
 # Process a message as it arrives
 def on_message(client, userdata, msg):
-    if msg.topic == 'hermes/intent/ActivateObject':
-        slots = parse_slots(msg)
-        if 'objectType' not in slots:
-            say("I don't know what object I should activate")
-        else:
-            object_name = slots['objectType']
-            datetime = slots.get('startDateTime', 'now')
-            say('Activating {} {}'.format(object_name, datetime))
-    elif msg.topic == 'hermes/intent/DeactivateObject':
-        slots = parse_slots(msg)
-        if 'objectType' not in slots:
-            say("I don't know what object I should deactivate")
-        else:
-            object_name = slots['objectType']
-            datetime = slots.get('startDateTime', 'now')
-            say('Deactivating {} {}'.format(object_name, datetime))
-    elif msg.topic == 'hermes/intent/MuteObject':
-        slots = parse_slots(msg)
-        if 'deviceType' not in slots:
-            say("I don't know what object I should mute")
-        else:
-            object_name = slots['deviceType']
-            say('Mute {}'.format(object_name))
-    elif msg.topic == 'hermes/intent/ActivateLightColor':
-        slots = parse_slots(msg)
-        color = slots.get('objectColor', 'white').lower()
-        say('Turning the light {}'.format(color))
+    if msg.topic == 'hermes/intent/lightsTurnOnSet':
+        action = "on"
+    elif msg.topic == 'hermes/intent/lightsTurnOff':
+        action = "off"
+    elif msg.topic == 'hermes/intent/lightsTurnUp':
+        action = "up"
+    elif msg.topic == 'hermes/intent/lightsTurnDown':
+        action = "down"
+    slots = parse_slots(msg)
+    session_id = parse_session_id(msg)
+    if 'house_room' not in slots:
+        say(session_id, "I don't know where I should turn {} the lights".format(action))
+    else:
+        room = slots['house_room']
+        say(session_id, 'Turning {} the lights in the {}'.format(action, room))
 
 
 def parse_slots(msg):
@@ -52,15 +40,22 @@ def parse_slots(msg):
     return dict((slot['slotName'], slot['rawValue']) for slot in data['slots'])
 
 
-def say(text):
+def parse_session_id(msg): 
+    '''
+    Extract the session id from the message
+    '''
+    data = json.loads(msg.payload)
+    return data['sessionId']
+
+def say(session_id, text):
     '''
     Print the output to the console and to the TTS engine
     '''
     print(text)
-    mqtt_client.publish('hermes/tts/say', json.dumps({'text': text}))
+    mqtt_client.publish('hermes/dialogueManager/endSession', json.dumps({'text': text, "sessionId" : session_id}))
 
 if __name__ == '__main__':
     mqtt_client.on_connect = on_connect
     mqtt_client.on_message = on_message
-    mqtt_client.connect('localhost', 9898)
+    mqtt_client.connect('localhost', 1883)
     mqtt_client.loop_forever()

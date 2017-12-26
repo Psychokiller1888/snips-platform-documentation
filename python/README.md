@@ -39,6 +39,5 @@ python display_messages/display_messages.py
 
 ## IoT Assistant
 
-If you followed [this tutorial](https://github.com/snipsco/snips-platform-documentation/wiki/2.-Running-your-first-end-to-end-assistant) you have built an assistant to handle a few interesting intents for IoT. You can also install a prebuilt [IoT assistant ](https://github.com/snipsco/snips-platform-documentation/raw/master/resources/iot_assistant.zip) and uncompress it on your device in `/opt/snips/config`
+This piece of code handle intents from the snips smart lights bundle from the console, it uses the TTS to tell when an intent was detected (but doesn't actually turn on the lights)
 
-The code is a handler which shows how to get the intents as they are sent by the natural language understanding, and do an action by sending a helpful message on the text-to-speech channel
