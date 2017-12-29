@@ -12,6 +12,6 @@
   "author": "",
   "homepage": "https://snips.ai",
   "dependencies": {
-    "mqtt": "2.8.2"
+    "mqtt": "2.15.0"
   }
 }
