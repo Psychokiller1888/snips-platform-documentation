@@ -10,6 +10,20 @@
     * Microphones suggestions
     * Speakers suggestions
     * Additional components
+* Getting Started
+  * Installing Snips
+    * On a Raspberry Pi
+    * On Android
+    * On iOS
+    * Advanced solutions
+  * Make it work
+    * Important basics
+    * Adding a skill
+    * Create your own skill
+      * Writing your own intents
+      * Actions
+    * Configure the assistant
+    * Deploy it
 * [Home](home.md)
 * [1. Setup Snips Platform](1.-setup-snips-platform.md)
 * [2. Create an assistant using an existing bundle](2.-create-an-assistant-using-an-existing-bundle.md)
