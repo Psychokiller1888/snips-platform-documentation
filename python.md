@@ -1,8 +1,10 @@
+# Handler code examples for your Snips assistant
+
 When you have built an assistant on [https://snips.ai](https://snips.ai) by following [the tutorial](https://github.com/snipsco/snips-platform-documentation/wiki), you can write your own handler to act on the behalf of the user.
 
 This repository contains a few examples in Python
 
-# Install requirements
+## Install requirements
 
 The main requirement of the handler is to watch the MQTT bus with the Hermes messages from the Snips AI.
 
@@ -15,7 +17,7 @@ pip install paho-mqtt
 
 You also need to have [setup your platform with the Snips assistant](https://github.com/snipsco/snips-platform-documentation/wiki/1.-Setup-the-Snips-Voice-Platform-on-your-Raspberry-Pi) and copied an assistant model \(you can use the [demo IoT assistant](https://github.com/snipsco/snips-platform-documentation/raw/master/resources/iot_assistant.zip)\) to `/opt/snips/config` on your device
 
-# Display messages
+## Display messages
 
 The components of the AI are communicating and coordinating through a MQTT bus, a good way to understand what your on-device Snips assistant is doing is to look at the messages on the bus
 
@@ -33,7 +35,7 @@ python display_messages/display_messages.py
 -  hermes/intent/ActivateLightColor: {"input":"turn the lights blue","intent":{"intentName":"ActivateLightColor","probability":0.9836065},"slots":[{"value":{"kind":"Custom","value":"blue"},"rawValue":"blue","range":{"start":16,"end":20},"entity":"objectColor","slotName":"objectColor"}]}
 ```
 
-# IoT Assistant
+## IoT Assistant
 
 This piece of code handle intents from the snips smart lights bundle from the console, it uses the TTS to tell when an intent was detected \(but doesn't actually turn on the lights\)
 

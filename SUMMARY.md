@@ -1,6 +1,15 @@
 # Table of contents
 
 * [Snips Voice Platform Documentation](README.md)
+* Snips Basics
+  * What is Snips?
+  * What can Snips do?
+  * General FAQ
+  * What do I need?
+    * Hardware
+    * Microphones suggestions
+    * Speakers suggestions
+    * Additional components
 * [Home](home.md)
 * [1. Setup Snips Platform](1.-setup-snips-platform.md)
 * [2. Create an assistant using an existing bundle](2.-create-an-assistant-using-an-existing-bundle.md)

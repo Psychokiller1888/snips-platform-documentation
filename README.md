@@ -1,12 +1,14 @@
+# Snips Voice Platform Documentation
+
 ![Snips Voice Platform](https://s3.amazonaws.com/get.docs.snips.ai/static/images/wiki/snips_banner_prod.png)
 
-# About the Platform
+## About the Platform
 
 The Snips Voice Platform allows anyone to integrate AI powered voice interaction in their devices with ease. The end-to-end pipeline - Hotword detection, Automatic Speech Recognition \(ASR\) and Natural Language Understanding \(NLU\) - runs fully on device, powered by state of the art deep learning. By using Snips, you can avoid cloud provider costs, cloud latency, and protect user's privacy.
 
 Your voice assistant in English and French \(more to come\) can be configured easily via a web console. You can select pre-built assistants, or create completely custom ones. Today, the assistant can be deployed to a Raspberry Pi 3 and Android running on ARM hardware. More platforms are available for enterprise clients, contact us at contact@snips.ai.
 
-# Getting Started
+## Getting Started
 
 You will find everything you need in the [wiki](https://github.com/snipsco/snips-platform-documentation/wiki). You can get started with the [overview](https://github.com/snipsco/snips-platform-documentation/wiki), or alternatively, navigate the doc from here:
 
@@ -49,7 +51,7 @@ You will find everything you need in the [wiki](https://github.com/snipsco/snips
 
 [FAQ](https://github.com/snipsco/snips-platform-documentation/wiki/FAQ)
 
-# About this repository code
+## About this repository code
 
 You'll also find here sample code for handlers both in python and node. We strongly advise to get started with the [wiki](https://github.com/snipsco/snips-platform-documentation/wiki), that will route you to these samples at the right time.
 
