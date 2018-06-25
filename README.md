@@ -1,3 +1,8 @@
+# THIS IS A DEPRECATED DOCUMENTATION OF THE SNIPS PLATFORM KEPT ONLY FOR REFERENCE AND HISTORY. THE NEW DOCUMENTATION CAN BE FOUND ON GITBOOK: [SNIPS DOUCMENTATION](https://www.gitbook.com/@snips/spaces)
+
+
+
+
 # Snips Voice Platform Documentation
 
 ![Snips Voice Platform](https://s3.amazonaws.com/get.docs.snips.ai/static/images/wiki/snips_banner_prod.png)
